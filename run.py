@@ -1,7 +1,7 @@
-# main
 # Reads data from the sensor and sends a text if new food is detected.
 
 import time
+import callServer
 
 POLL_FREQ_IN_S = 5
 MIN_TIME_THRESHOLD = 1
@@ -15,8 +15,8 @@ def getData():
 
 
 # replace with sendText module
-def sendText():
-    return
+def notify():
+    callServer.BoomerIsFed()
 
 
 def run(debug=False):
@@ -29,7 +29,7 @@ def run(debug=False):
         if (data > WEIGHT_THRESHOLD_IN_G):
             thresholdTime += 1
             if(thresholdTime > MIN_TIME_THRESHOLD):
-                sendText()
+                notify()
                 thresholdTime = 0
         else:
             if debug:
