@@ -1,0 +1,5 @@
+- For every x seconds:
+-- getData() # Poll the sensor, get values, convert, return.
+-- Is it aboveThreshold() and minTimeElapsed() # > 200g? AND >5s
+--- True: sendText()
+--- False: continue
